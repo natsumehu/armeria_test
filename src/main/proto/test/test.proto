@@ -1,0 +1,19 @@
+syntax = "proto3";
+package test;
+
+import "google/api/annotations.proto";
+
+option java_package = "test";
+
+message HelloRequest {}
+
+message HelloReply {}
+
+service HelloService {
+    rpc getHello(HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            get: "/hello"
+            body: "*"
+        };
+    }
+}
